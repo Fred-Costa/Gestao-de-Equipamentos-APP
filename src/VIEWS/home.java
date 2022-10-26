@@ -691,6 +691,11 @@ public final class home extends javax.swing.JFrame {
         DocEQUIP.setBackground(new java.awt.Color(204, 204, 204));
         DocEQUIP.setFont(new java.awt.Font("Verdana Pro Cond Semibold", 1, 14)); // NOI18N
         DocEQUIP.setText("DOCUMENTOS");
+        DocEQUIP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DocEQUIPActionPerformed(evt);
+            }
+        });
 
         jLabel9.setText("Tipo de Equipamento:");
 
@@ -2045,6 +2050,14 @@ public final class home extends javax.swing.JFrame {
             System.out.println("Erro guarda1: " + erro);
         }
     }//GEN-LAST:event_EquipCBAncestorAdded
+
+    private void DocEQUIPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DocEQUIPActionPerformed
+        
+        docView documentos = new docView();
+        documentos.setVisible(true);
+        setVisible(true);
+        
+    }//GEN-LAST:event_DocEQUIPActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
