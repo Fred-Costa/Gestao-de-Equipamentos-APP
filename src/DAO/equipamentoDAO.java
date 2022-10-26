@@ -244,7 +244,7 @@ public class equipamentoDAO {
     public List<equipamentoBEAN> pesquisaDataEquipamento(Object equipamento, Object data1, Object data2) {
 
         List<equipamentoBEAN> equipamentos = new ArrayList<>();
-        String sql = "SELECT * FROM equipamento WHERE equipamento LIKE ? AND datAquisi BETWEEN ? AND ?";
+        String sql = "SELECT * FROM equipamento WHERE equipamento LIKE ? AND datAquisi BETWEEN ? AND ? ORDER BY datAquisi";
 
         try {
             stm = conn.prepareStatement(sql);

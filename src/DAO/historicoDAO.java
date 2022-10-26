@@ -389,7 +389,7 @@ public class historicoDAO {
 
         try {
             stm = conn.prepareStatement(sql);
-            stm.setObject(1, "%" + estado + "%");
+            stm.setObject(1, estado);
 
             rs = stm.executeQuery();
 
@@ -429,7 +429,14 @@ public class historicoDAO {
     public List<historicoBEAN> pesquisaData(Object data1, Object data2) {
 
         List<historicoBEAN> historico = new ArrayList<>();
-        String sql = "SELECT * FROM historico WHERE data BETWEEN ? AND ? ORDER BY data";
+        String sql = """
+                     SELECT h.id_historico, u.nome, equip.equipamento, equip.marca, equip.modelo, equip.numSerie,  estd.estado, h.avaria, h.data 
+                     FROM historico h
+                     INNER JOIN users u ON (h.id_user = u.id)
+                     INNER JOIN equipamento equip ON (h.id_equipamento = equip.idequipamento)
+                     INNER JOIN estado estd ON (h.id_estado = estd.idestado)
+                     WHERE data BETWEEN ? AND ? ORDER BY data
+                     """;
 
         try {
             stm = conn.prepareStatement(sql);
@@ -447,7 +454,7 @@ public class historicoDAO {
 
                 userBEAN u = new userBEAN();
                 u.setNome(rs.getString("nome"));
-
+                
                 hist.setUser(u);
 
                 equipamentoBEAN equip = new equipamentoBEAN();
@@ -584,14 +591,14 @@ public class historicoDAO {
 
         List<historicoBEAN> historico = new ArrayList<>();
         String sql = """
-                    SELECT h.id_historico, u.nome, equip.equipamento, equip.marca, equip.modelo, equip.numSerie,  estd.estado, h.avaria, h.data
-                    from historico h 
+                    SELECT *
+                    FROM historico h 
                     INNER JOIN users u ON h.id_user = u.id
-                    INNER JOIN equipamento equip on equip.idequipamento = h.id_equipamento
-                    INNER JOIN estado estd on estd.idestado = h.id_estado
+                    INNER JOIN equipamento equip ON h.id_equipamento = equip.idequipamento
+                    INNER JOIN estado estd ON h.id_estado = estd.idestado
                     WHERE estd.estado LIKE ? 
                     AND data BETWEEN ? AND ? 
-                    ORDER BY h.id_historico
+                    ORDER BY h.data
                     """;
 
         try {
@@ -630,7 +637,7 @@ public class historicoDAO {
                 historico.add(hist);
             }
         } catch (SQLException erro) {
-            JOptionPane.showMessageDialog(null, "Erro na pesquisaComplementar4: " + erro, "AVISO!", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Erro na pesquisaComplementar3: " + erro, "AVISO!", JOptionPane.WARNING_MESSAGE);
         }
         return historico;
     }
@@ -807,7 +814,7 @@ public class historicoDAO {
                     INNER JOIN users u ON h.id_user = u.id
                     INNER JOIN equipamento equip on equip.idequipamento = h.id_equipamento
                     INNER JOIN estado estd on estd.idestado = h.id_estado
-                    WHERE equip.equipamento LIKE ? 
+                    WHERE u.nome LIKE ? 
                     AND estd.estado LIKE ?
                     AND data BETWEEN ? AND ? 
                     ORDER BY h.id_historico
@@ -850,7 +857,287 @@ public class historicoDAO {
                 historico.add(hist);
             }
         } catch (SQLException erro) {
-            JOptionPane.showMessageDialog(null, "Erro na pesquisaComplementar6: " + erro, "AVISO!", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Erro na pesquisaComplementar7: " + erro, "AVISO!", JOptionPane.WARNING_MESSAGE);
+        }
+        return historico;
+    }
+    
+    public List<historicoBEAN> pesquisaComplementar8(Object user, Object equipamento) {
+
+        List<historicoBEAN> historico = new ArrayList<>();
+        String sql = """
+                    SELECT h.id_historico, u.nome, equip.equipamento, equip.marca, equip.modelo, equip.numSerie,  estd.estado, h.avaria, h.data
+                    from historico h 
+                    INNER JOIN users u ON h.id_user = u.id
+                    INNER JOIN equipamento equip on equip.idequipamento = h.id_equipamento
+                    INNER JOIN estado estd on estd.idestado = h.id_estado
+                    WHERE u.nome LIKE ? 
+                    AND equip.equipamento LIKE ?
+                    ORDER BY h.id_historico
+                    """;
+
+        try {
+            stm = conn.prepareStatement(sql);
+            stm.setObject(1, user);
+            stm.setObject(2, equipamento);
+
+            rs = stm.executeQuery();
+
+            while (rs.next()) {
+                historicoBEAN hist = new historicoBEAN();
+
+                hist.setIdhistorico(rs.getInt("id_historico"));
+                hist.setAvaria(rs.getString("avaria"));
+                hist.setData(rs.getString("data"));
+
+                userBEAN u = new userBEAN();
+                u.setNome(rs.getString("nome"));
+
+                hist.setUser(u);
+
+                equipamentoBEAN equip = new equipamentoBEAN();
+                equip.setEquipamento(rs.getString("equipamento"));
+                equip.setMarca(rs.getString("marca"));
+                equip.setModelo(rs.getString("modelo"));
+                equip.setNumSerie(rs.getString("numSerie"));
+
+                hist.setEquipamento(equip);
+
+                estadoBEAN estd = new estadoBEAN();
+                estd.setEstado(rs.getString("estado"));
+
+                hist.setEstado(estd);
+
+                historico.add(hist);
+            }
+        } catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null, "Erro na pesquisaComplementar8: " + erro, "AVISO!", JOptionPane.WARNING_MESSAGE);
+        }
+        return historico;
+    }
+    
+    public List<historicoBEAN> pesquisaComplementar9(Object user, Object equipamento, Object marca) {
+
+        List<historicoBEAN> historico = new ArrayList<>();
+        String sql = """
+                    SELECT h.id_historico, u.nome, equip.equipamento, equip.marca, equip.modelo, equip.numSerie,  estd.estado, h.avaria, h.data
+                    from historico h 
+                    INNER JOIN users u ON h.id_user = u.id
+                    INNER JOIN equipamento equip on equip.idequipamento = h.id_equipamento
+                    INNER JOIN estado estd on estd.idestado = h.id_estado
+                    WHERE u.nome LIKE ? 
+                    AND equip.equipamento LIKE ?
+                    AND equip.marca LIKE ?
+                    ORDER BY h.id_historico
+                    """;
+
+        try {
+            stm = conn.prepareStatement(sql);
+            stm.setObject(1, user);
+            stm.setObject(2, equipamento);
+            stm.setObject(3, marca);
+
+            rs = stm.executeQuery();
+
+            while (rs.next()) {
+                historicoBEAN hist = new historicoBEAN();
+
+                hist.setIdhistorico(rs.getInt("id_historico"));
+                hist.setAvaria(rs.getString("avaria"));
+                hist.setData(rs.getString("data"));
+
+                userBEAN u = new userBEAN();
+                u.setNome(rs.getString("nome"));
+
+                hist.setUser(u);
+
+                equipamentoBEAN equip = new equipamentoBEAN();
+                equip.setEquipamento(rs.getString("equipamento"));
+                equip.setMarca(rs.getString("marca"));
+                equip.setModelo(rs.getString("modelo"));
+                equip.setNumSerie(rs.getString("numSerie"));
+
+                hist.setEquipamento(equip);
+
+                estadoBEAN estd = new estadoBEAN();
+                estd.setEstado(rs.getString("estado"));
+
+                hist.setEstado(estd);
+
+                historico.add(hist);
+            }
+        } catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null, "Erro na pesquisaComplementar8: " + erro, "AVISO!", JOptionPane.WARNING_MESSAGE);
+        }
+        return historico;
+    }
+    
+    public List<historicoBEAN> pesquisaComplementar10(Object user, Object equipamento, Object marca, Object modelo) {
+
+        List<historicoBEAN> historico = new ArrayList<>();
+        String sql = """
+                    SELECT h.id_historico, u.nome, equip.equipamento, equip.marca, equip.modelo, equip.numSerie,  estd.estado, h.avaria, h.data
+                    from historico h 
+                    INNER JOIN users u ON h.id_user = u.id
+                    INNER JOIN equipamento equip on equip.idequipamento = h.id_equipamento
+                    INNER JOIN estado estd on estd.idestado = h.id_estado
+                    WHERE u.nome LIKE ? 
+                    AND equip.equipamento LIKE ?
+                    AND equip.marca LIKE ?
+                    AND equip.modelo LIKE ?
+                    ORDER BY h.id_historico
+                    """;
+
+        try {
+            stm = conn.prepareStatement(sql);
+            stm.setObject(1, user);
+            stm.setObject(2, equipamento);
+            stm.setObject(3, marca);
+            stm.setObject(4, modelo);
+
+            rs = stm.executeQuery();
+
+            while (rs.next()) {
+                historicoBEAN hist = new historicoBEAN();
+
+                hist.setIdhistorico(rs.getInt("id_historico"));
+                hist.setAvaria(rs.getString("avaria"));
+                hist.setData(rs.getString("data"));
+
+                userBEAN u = new userBEAN();
+                u.setNome(rs.getString("nome"));
+
+                hist.setUser(u);
+
+                equipamentoBEAN equip = new equipamentoBEAN();
+                equip.setEquipamento(rs.getString("equipamento"));
+                equip.setMarca(rs.getString("marca"));
+                equip.setModelo(rs.getString("modelo"));
+                equip.setNumSerie(rs.getString("numSerie"));
+
+                hist.setEquipamento(equip);
+
+                estadoBEAN estd = new estadoBEAN();
+                estd.setEstado(rs.getString("estado"));
+
+                hist.setEstado(estd);
+
+                historico.add(hist);
+            }
+        } catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null, "Erro na pesquisaComplementar8: " + erro, "AVISO!", JOptionPane.WARNING_MESSAGE);
+        }
+        return historico;
+    }
+    
+    public List<historicoBEAN> pesquisaComplementar11(Object user, Object numSerie) {
+
+        List<historicoBEAN> historico = new ArrayList<>();
+        String sql = """
+                    SELECT h.id_historico, u.nome, equip.equipamento, equip.marca, equip.modelo, equip.numSerie,  estd.estado, h.avaria, h.data
+                    from historico h 
+                    INNER JOIN users u ON h.id_user = u.id
+                    INNER JOIN equipamento equip on equip.idequipamento = h.id_equipamento
+                    INNER JOIN estado estd on estd.idestado = h.id_estado
+                    WHERE u.nome LIKE ? 
+                    AND equip.numSerie LIKE ?
+                    ORDER BY h.id_historico
+                    """;
+
+        try {
+            stm = conn.prepareStatement(sql);
+            stm.setObject(1, user);
+            stm.setObject(2, numSerie);
+
+            rs = stm.executeQuery();
+
+            while (rs.next()) {
+                historicoBEAN hist = new historicoBEAN();
+
+                hist.setIdhistorico(rs.getInt("id_historico"));
+                hist.setAvaria(rs.getString("avaria"));
+                hist.setData(rs.getString("data"));
+
+                userBEAN u = new userBEAN();
+                u.setNome(rs.getString("nome"));
+
+                hist.setUser(u);
+
+                equipamentoBEAN equip = new equipamentoBEAN();
+                equip.setEquipamento(rs.getString("equipamento"));
+                equip.setMarca(rs.getString("marca"));
+                equip.setModelo(rs.getString("modelo"));
+                equip.setNumSerie(rs.getString("numSerie"));
+
+                hist.setEquipamento(equip);
+
+                estadoBEAN estd = new estadoBEAN();
+                estd.setEstado(rs.getString("estado"));
+
+                hist.setEstado(estd);
+
+                historico.add(hist);
+            }
+        } catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null, "Erro na pesquisaComplementar8: " + erro, "AVISO!", JOptionPane.WARNING_MESSAGE);
+        }
+        return historico;
+    }
+    
+    
+    public List<historicoBEAN> pesquisaComplementar12(Object user, Object equipamento, Object data1, Object data2) {
+
+        List<historicoBEAN> historico = new ArrayList<>();
+        String sql = """
+                    SELECT h.id_historico, u.nome, equip.equipamento, equip.marca, equip.modelo, equip.numSerie,  estd.estado, h.avaria, h.data
+                    from historico h 
+                    INNER JOIN users u ON h.id_user = u.id
+                    INNER JOIN equipamento equip on equip.idequipamento = h.id_equipamento
+                    INNER JOIN estado estd on estd.idestado = h.id_estado
+                    WHERE u.nome LIKE ? 
+                    AND equip.equipamento LIKE ?
+                    AND data BETWEEN ? AND ?
+                    ORDER BY h.id_historico
+                    """;
+
+        try {
+            stm = conn.prepareStatement(sql);
+            stm.setObject(1, user);
+            stm.setObject(2, equipamento);
+            stm.setObject(3, data1);
+            stm.setObject(4, data2);
+
+            rs = stm.executeQuery();
+
+            while (rs.next()) {
+                historicoBEAN hist = new historicoBEAN();
+
+                hist.setIdhistorico(rs.getInt("id_historico"));
+                hist.setAvaria(rs.getString("avaria"));
+                hist.setData(rs.getString("data"));
+
+                userBEAN u = new userBEAN();
+                u.setNome(rs.getString("nome"));
+
+                hist.setUser(u);
+
+                equipamentoBEAN equip = new equipamentoBEAN();
+                equip.setEquipamento(rs.getString("equipamento"));
+                equip.setMarca(rs.getString("marca"));
+                equip.setModelo(rs.getString("modelo"));
+                equip.setNumSerie(rs.getString("numSerie"));
+
+                hist.setEquipamento(equip);
+
+                estadoBEAN estd = new estadoBEAN();
+                estd.setEstado(rs.getString("estado"));
+
+                hist.setEstado(estd);
+
+                historico.add(hist);
+            }
+        } catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null, "Erro na pesquisaComplementar8: " + erro, "AVISO!", JOptionPane.WARNING_MESSAGE);
         }
         return historico;
     }

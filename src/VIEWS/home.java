@@ -1,5 +1,4 @@
 /* Gestão de Equipamentos */
-
 package VIEWS;
 
 import BEAN.equipamentoBEAN;
@@ -1738,19 +1737,6 @@ public final class home extends javax.swing.JFrame {
             pesquisaHistEstado(searchEstado.getSelectedItem());
         }
 
-        // PESQUISA ENTRE DATAS
-        if (inicialData.getDate() != null && fimData.getDate() != null) {
-            try {
-                SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-                String dataInicial = df.format(inicialData.getDate());
-                String dataFim = df.format(fimData.getDate());
-
-                pesquisaDataHist(dataInicial, dataFim);
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "Erro na Pesquisa entre datas: " + e);
-            }
-        }
-
         // PESQUISA COMPLEMENTAR: user && estado
         if (searchUser.getSelectedItem() != "Selecione" && searchEstado.getSelectedItem() != "Selecione") {
             pesquisaComplementarHist1(searchUser.getSelectedItem(), searchEstado.getSelectedItem());
@@ -1760,8 +1746,9 @@ public final class home extends javax.swing.JFrame {
         if (searchUser.getSelectedItem() != "Selecione" && inicialData.getDate() != null && fimData.getDate() != null) {
 
             try {
-                String dataInicial = inicialData.getDate().toString();
-                String dataFim = fimData.getDate().toString();
+                SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+                String dataInicial = df.format(inicialData.getDate());
+                String dataFim = df.format(fimData.getDate());
 
                 pesquisaComplementarHist2(searchUser.getSelectedItem(), dataInicial, dataFim);
             } catch (Exception e) {
@@ -1773,8 +1760,9 @@ public final class home extends javax.swing.JFrame {
         if (searchEstado.getSelectedItem() != "Selecione" && inicialData.getDate() != null && fimData.getDate() != null) {
 
             try {
-                String dataInicial = inicialData.getDate().toString();
-                String dataFim = fimData.getDate().toString();
+                SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+                String dataInicial = df.format(inicialData.getDate());
+                String dataFim = df.format(fimData.getDate());
 
                 pesquisaComplementarHist3(searchEstado.getSelectedItem(), dataInicial, dataFim);
             } catch (Exception e) {
@@ -1798,18 +1786,66 @@ public final class home extends javax.swing.JFrame {
         }
 
         // PESQUISA COMPLEMENTAR: user && estado && data
-        if (searchEquip.getSelectedItem() != "Selecione" && searchEstado.getSelectedItem() != "Selecione" && inicialData.getDate() != null && fimData.getDate() != null) {
+        if (searchUser.getSelectedItem() != "Selecione" && searchEstado.getSelectedItem() != "Selecione" && inicialData.getDate() != null && fimData.getDate() != null) {
 
             try {
-                String dataInicial = inicialData.getDate().toString();
-                String dataFim = fimData.getDate().toString();
-                
-                pesquisaComplementarHist7(searchEquip.getSelectedItem(), searchEstado.getSelectedItem(), dataInicial, dataFim);
+                SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+                String dataInicial = df.format(inicialData.getDate());
+                String dataFim = df.format(fimData.getDate());
+
+                pesquisaComplementarHist7(searchUser.getSelectedItem(), searchEstado.getSelectedItem(), dataInicial, dataFim);
             } catch (Exception erro) {
                 JOptionPane.showMessageDialog(null, "ErroPesquesiaComplementar7: " + erro);
             }
         }
+        
+        // PESQUISA COMPLEMENTAR: user && equipamento
+        if (searchUser.getSelectedItem() != "Selecione" && searchEquip.getSelectedItem() != "Selecione") {
+            pesquisaComplementarHist8(searchUser.getSelectedItem(), searchEquip.getSelectedItem());
+        }
+        
+        // PESQUISA COMPLEMENTAR: user && equipamento && marca
+        if (searchUser.getSelectedItem() != "Selecione" && searchEquip.getSelectedItem() != "Selecione" && searchMarca.getSelectedItem() != "Selecione") {
+           pesquisaComplementarHist9(searchUser.getSelectedItem(), searchEquip.getSelectedItem(), searchMarca.getSelectedItem());
+        }
+        
+        // PESQUISA COMPLEMENTAR: user && equipamento && marca && modelo
+        if (searchUser.getSelectedItem() != "Selecione" && searchEquip.getSelectedItem() != "Selecione" && searchMarca.getSelectedItem() != "Selecione" && searchModelo.getSelectedItem() != "Selecione") {
+            pesquisaComplementarHist10(searchUser.getSelectedItem(), searchEquip.getSelectedItem(), searchMarca.getSelectedItem(), searchModelo.getSelectedItem());
+        }
+        
+        // PESQUISA COMPLEMENTAR: user && numSerie
+        if (searchUser.getSelectedItem() != "Selecione" && searchNumSerie.getSelectedItem() != "Selecione") {
+            pesquisaComplementarHist11(searchUser.getSelectedItem(), searchNumSerie.getSelectedItem());
+        }
+        
+        // PESQUISA COMPLEMENTAR: user && equipamento && data
+        if (searchUser.getSelectedItem() != "Selecione" && searchEquip.getSelectedItem() != "Selecione" && inicialData.getDate() != null && fimData.getDate() != null) {
 
+            try {
+                SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+                String dataInicial = df.format(inicialData.getDate());
+                String dataFim = df.format(fimData.getDate());
+
+                pesquisaComplementarHist7(searchUser.getSelectedItem(), searchEquip.getSelectedItem(), dataInicial, dataFim);
+            } catch (Exception erro) {
+                JOptionPane.showMessageDialog(null, "ErroPesquesiaComplementar7: " + erro);
+            }
+        }
+        
+        /*
+        if (inicialData.getDate() != null && fimData.getDate() != null) {
+            try {
+                SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+                String dataInicial = df.format(inicialData.getDate());
+                String dataFim = df.format(fimData.getDate());
+
+                pesquisaDataHist(dataInicial, dataFim);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Erro na Pesquisa entre datas: " + e);
+            }
+        }
+        */
     }//GEN-LAST:event_pesquisaHISTActionPerformed
 
     private void deleteHISTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteHISTActionPerformed
@@ -2720,6 +2756,111 @@ public final class home extends javax.swing.JFrame {
         historicoDAO hDAO = new historicoDAO();
 
         for (historicoBEAN h : hDAO.pesquisaComplementar7(user, estado, data1, data2)) {
+            model.addRow(new Object[]{
+                h.getIdhistorico(),
+                h.getUser().getNome(),
+                h.getEquipamento().getEquipamento(),
+                h.getEquipamento().getMarca(),
+                h.getEquipamento().getModelo(),
+                h.getEquipamento().getNumSerie(),
+                h.getEstado().getEstado(),
+                h.getAvaria(),
+                h.getData()
+            });
+        }
+    }
+    
+    private void pesquisaComplementarHist8(Object user, Object equipamento) {
+        DefaultTableModel model = (DefaultTableModel) jTHist.getModel();
+        model.setNumRows(0);
+
+        historicoDAO hDAO = new historicoDAO();
+
+        for (historicoBEAN h : hDAO.pesquisaComplementar8(user, equipamento)) {
+            model.addRow(new Object[]{
+                h.getIdhistorico(),
+                h.getUser().getNome(),
+                h.getEquipamento().getEquipamento(),
+                h.getEquipamento().getMarca(),
+                h.getEquipamento().getModelo(),
+                h.getEquipamento().getNumSerie(),
+                h.getEstado().getEstado(),
+                h.getAvaria(),
+                h.getData()
+            });
+        }
+    }
+    
+    private void pesquisaComplementarHist9(Object user, Object equipamento, Object marca) {
+        DefaultTableModel model = (DefaultTableModel) jTHist.getModel();
+        model.setNumRows(0);
+
+        historicoDAO hDAO = new historicoDAO();
+
+        for (historicoBEAN h : hDAO.pesquisaComplementar9(user, equipamento, marca)) {
+            model.addRow(new Object[]{
+                h.getIdhistorico(),
+                h.getUser().getNome(),
+                h.getEquipamento().getEquipamento(),
+                h.getEquipamento().getMarca(),
+                h.getEquipamento().getModelo(),
+                h.getEquipamento().getNumSerie(),
+                h.getEstado().getEstado(),
+                h.getAvaria(),
+                h.getData()
+            });
+        }
+    }
+    
+    private void pesquisaComplementarHist10(Object user, Object equipamento, Object marca, Object modelo) {
+        DefaultTableModel model = (DefaultTableModel) jTHist.getModel();
+        model.setNumRows(0);
+
+        historicoDAO hDAO = new historicoDAO();
+
+        for (historicoBEAN h : hDAO.pesquisaComplementar10(user, equipamento, marca, modelo)) {
+            model.addRow(new Object[]{
+                h.getIdhistorico(),
+                h.getUser().getNome(),
+                h.getEquipamento().getEquipamento(),
+                h.getEquipamento().getMarca(),
+                h.getEquipamento().getModelo(),
+                h.getEquipamento().getNumSerie(),
+                h.getEstado().getEstado(),
+                h.getAvaria(),
+                h.getData()
+            });
+        }
+    }
+    
+    private void pesquisaComplementarHist11(Object user, Object numSerie) {
+        DefaultTableModel model = (DefaultTableModel) jTHist.getModel();
+        model.setNumRows(0);
+
+        historicoDAO hDAO = new historicoDAO();
+
+        for (historicoBEAN h : hDAO.pesquisaComplementar11(user, numSerie)) {
+            model.addRow(new Object[]{
+                h.getIdhistorico(),
+                h.getUser().getNome(),
+                h.getEquipamento().getEquipamento(),
+                h.getEquipamento().getMarca(),
+                h.getEquipamento().getModelo(),
+                h.getEquipamento().getNumSerie(),
+                h.getEstado().getEstado(),
+                h.getAvaria(),
+                h.getData()
+            });
+        }
+    }
+    
+    private void pesquisaComplementarHist12(Object user, Object equipamento, Object data1, Object data2) {
+        DefaultTableModel model = (DefaultTableModel) jTHist.getModel();
+        model.setNumRows(0);
+
+        historicoDAO hDAO = new historicoDAO();
+
+        for (historicoBEAN h : hDAO.pesquisaComplementar12(user, equipamento, data1, data2)) {
             model.addRow(new Object[]{
                 h.getIdhistorico(),
                 h.getUser().getNome(),
