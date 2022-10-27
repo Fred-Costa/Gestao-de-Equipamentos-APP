@@ -1703,6 +1703,12 @@ public final class home extends javax.swing.JFrame {
         hist.setData(((JTextField) DATA.getDateEditor().getUiComponent()).getText());
 
         hDAO.create(hist);
+        
+        userCB.setSelectedItem("Selecione");
+        EquipCB.setSelectedItem("Selecione");
+        estadoCB.setSelectedItem("Selecione");
+        desc.setText("");
+        DATA.setDate(null);
 
         leituraHistorico();
         init();
@@ -2042,8 +2048,8 @@ public final class home extends javax.swing.JFrame {
             rs = stm.executeQuery();
 
             while (rs.next()) {
-                EquipCB.removeItem(rs.getInt("idequipamento") + "|" + rs.getString("equipamento") + " | " + rs.getString("marca") + " | " + rs.getString("modelo") + " | " + rs.getString("numSerie"));
-                EquipCB.addItem(rs.getInt("idequipamento") + " | " + rs.getString("equipamento") + " | " + rs.getString("marca") + " | " + rs.getString("modelo") + " | " + rs.getString("numSerie"));
+                EquipCB.removeItem(rs.getInt(1) + " | " + rs.getString(3) + " | " + rs.getString(4) + " | " + rs.getString(5) + " | " + rs.getString(6));
+                EquipCB.addItem(rs.getInt(1) + " | " + rs.getString(3) + " | " + rs.getString(4) + " | " + rs.getString(5) + " | " + rs.getString(6));
             }
 
         } catch (SQLException erro) {
