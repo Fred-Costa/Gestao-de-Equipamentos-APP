@@ -1090,6 +1090,11 @@ public final class home extends javax.swing.JFrame {
         docHIST.setBackground(new java.awt.Color(204, 204, 204));
         docHIST.setFont(new java.awt.Font("Verdana Pro Cond Semibold", 1, 14)); // NOI18N
         docHIST.setText("ANEXOS");
+        docHIST.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                docHISTActionPerformed(evt);
+            }
+        });
 
         jLabel36.setText("User:");
 
@@ -2064,6 +2069,14 @@ public final class home extends javax.swing.JFrame {
         setVisible(true);
         
     }//GEN-LAST:event_DocEQUIPActionPerformed
+
+    private void docHISTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_docHISTActionPerformed
+        
+        anxView anexos = new anxView();
+        anexos.setVisible(true);
+        setVisible(true);
+        
+    }//GEN-LAST:event_docHISTActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
