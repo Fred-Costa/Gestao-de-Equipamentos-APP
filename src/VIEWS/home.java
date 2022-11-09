@@ -301,10 +301,6 @@ public final class home extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(userSearch)
-                        .addContainerGap())
-                    .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(45, 45, 45)
                         .addComponent(PesquisaUSER, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 188, Short.MAX_VALUE)
@@ -313,7 +309,11 @@ public final class home extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel4)
-                        .addGap(244, 244, 244))))
+                        .addGap(244, 244, 244))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(userSearch)
+                        .addContainerGap())))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -562,7 +562,7 @@ public final class home extends javax.swing.JFrame {
                             .addGroup(jPanel9Layout.createSequentialGroup()
                                 .addComponent(jLabel7)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(equipID, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(equipID, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel9Layout.createSequentialGroup()
                                 .addComponent(jLabel13)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -769,21 +769,21 @@ public final class home extends javax.swing.JFrame {
                                 .addComponent(PesquisaEQUIP, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(234, 234, 234))
                             .addGroup(jPanel10Layout.createSequentialGroup()
-                                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel17)
-                                    .addGroup(jPanel10Layout.createSequentialGroup()
-                                        .addComponent(jLabel9)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(cbEQUIP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jLabel9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(cbEQUIP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel10Layout.createSequentialGroup()
                                         .addGap(126, 126, 126)
                                         .addComponent(jLabel16))
                                     .addGroup(jPanel10Layout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(DeleteEQUIP, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(cbNumSerie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                        .addComponent(DeleteEQUIP, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(jPanel10Layout.createSequentialGroup()
+                                .addComponent(jLabel17)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cbNumSerie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(145, 145, 145)))
                         .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel10Layout.createSequentialGroup()
                                 .addComponent(cbMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -966,20 +966,20 @@ public final class home extends javax.swing.JFrame {
                         .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel26)
                             .addComponent(jLabel33)
-                            .addGroup(jPanel12Layout.createSequentialGroup()
-                                .addComponent(jLabel20)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(historicoID, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel34)
                             .addComponent(jLabel21)
-                            .addComponent(EquipCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel12Layout.createSequentialGroup()
                                 .addComponent(jLabel25)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(DATA, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(estadoCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(userCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                            .addComponent(userCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel12Layout.createSequentialGroup()
+                                .addComponent(jLabel20)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(historicoID, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(EquipCB, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel12Layout.setVerticalGroup(
@@ -1108,6 +1108,11 @@ public final class home extends javax.swing.JFrame {
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
         });
+        searchUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchUserActionPerformed(evt);
+            }
+        });
 
         jLabel27.setText("Equipamento:");
 
@@ -1187,22 +1192,21 @@ public final class home extends javax.swing.JFrame {
                 .addComponent(jScrollPane4)
                 .addContainerGap())
             .addGroup(jPanel13Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel13Layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addComponent(pesquisaHIST, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createSequentialGroup()
+                            .addComponent(jLabel36, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(searchUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(19, 19, 19))
+                        .addGroup(jPanel13Layout.createSequentialGroup()
+                            .addComponent(jLabel29)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(searchModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel13Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createSequentialGroup()
-                                .addComponent(jLabel36, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(searchUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(19, 19, 19))
-                            .addGroup(jPanel13Layout.createSequentialGroup()
-                                .addComponent(jLabel29)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(searchModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addComponent(pesquisaHIST, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(1, 1, 1)))
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel13Layout.createSequentialGroup()
                         .addGap(143, 143, 143)
@@ -1236,14 +1240,14 @@ public final class home extends javax.swing.JFrame {
                         .addComponent(docHIST, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
             .addGroup(jPanel13Layout.createSequentialGroup()
-                .addGap(237, 237, 237)
-                .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(225, 225, 225)
+                .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(inicialData, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(inicialData, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel35)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(fimData, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(fimData, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel13Layout.setVerticalGroup(
@@ -1276,14 +1280,15 @@ public final class home extends javax.swing.JFrame {
                             .addComponent(fimData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(30, 30, 30)
                         .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(pesquisaHIST, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(deleteHIST, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(printHIST, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(docHIST, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createSequentialGroup()
                         .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(76, 76, 76))))
+                        .addGap(20, 20, 20)
+                        .addComponent(pesquisaHIST, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(16, 16, 16))))
         );
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
@@ -1448,9 +1453,6 @@ public final class home extends javax.swing.JFrame {
         if (txtModelo.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "O campo 'modelo' é de preenchimento obrigatório!");
         }
-        if (txtNumSerie.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "O campo 'Número Série' é de preenchimento obrigatório!");
-        }
 
         equipamentoBEAN equip = new equipamentoBEAN();
         equipamentoDAO eDAO = new equipamentoDAO();
@@ -1601,7 +1603,7 @@ public final class home extends javax.swing.JFrame {
 
     private void cbEQUIPAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_cbEQUIPAncestorAdded
 
-        String sql = "SELECT DISTINCT equipamento FROM equipamento ORDER BY idequipamento";
+        String sql = "SELECT DISTINCT equipamento FROM equipamento ORDER BY equipamento asc";
 
         try {
             stm = conn.prepareStatement(sql);
@@ -1619,7 +1621,7 @@ public final class home extends javax.swing.JFrame {
 
     private void cbMarcaAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_cbMarcaAncestorAdded
 
-        String sql = "SELECT DISTINCT marca FROM equipamento ORDER BY idequipamento";
+        String sql = "SELECT DISTINCT marca FROM equipamento ORDER BY marca asc";
 
         try {
             stm = conn.prepareStatement(sql);
@@ -1637,7 +1639,7 @@ public final class home extends javax.swing.JFrame {
 
     private void cbModeloAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_cbModeloAncestorAdded
 
-        String sql = "select distinct modelo from equipamento ORDER BY idequipamento";
+        String sql = "select distinct modelo from equipamento ORDER BY modelo asc";
 
         try {
             stm = conn.prepareStatement(sql);
@@ -1654,7 +1656,7 @@ public final class home extends javax.swing.JFrame {
     }//GEN-LAST:event_cbModeloAncestorAdded
 
     private void cbNumSerieAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_cbNumSerieAncestorAdded
-        String sql = "SELECT numSerie FROM equipamento ORDER BY idequipamento";
+        String sql = "SELECT numSerie FROM equipamento ORDER BY numSerie asc";
 
         try {
             stm = conn.prepareStatement(sql);
@@ -1849,7 +1851,7 @@ public final class home extends javax.swing.JFrame {
             }
         }
         
-        /*
+        // Pesquisa entre datas
         if (inicialData.getDate() != null && fimData.getDate() != null) {
             try {
                 SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
@@ -1861,7 +1863,7 @@ public final class home extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Erro na Pesquisa entre datas: " + e);
             }
         }
-        */
+        
     }//GEN-LAST:event_pesquisaHISTActionPerformed
 
     private void deleteHISTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteHISTActionPerformed
@@ -1894,15 +1896,15 @@ public final class home extends javax.swing.JFrame {
     }//GEN-LAST:event_printHISTActionPerformed
 
     private void userCBAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_userCBAncestorAdded
-        String sql = "SELECT * from users ORDER BY id";
+        String sql = "SELECT * from users ORDER BY nome asc";
 
         try {
             stm = conn.prepareStatement(sql);
             rs = stm.executeQuery();
 
             while (rs.next()) {
-                userCB.removeItem(rs.getInt("id") + " | " + rs.getString("nome"));
-                userCB.addItem(rs.getInt("id") + " | " + rs.getString("nome"));
+                userCB.removeItem(rs.getString("nome"));
+                userCB.addItem(rs.getString("nome"));
             }
 
         } catch (SQLException erro) {
@@ -1912,7 +1914,7 @@ public final class home extends javax.swing.JFrame {
     }//GEN-LAST:event_userCBAncestorAdded
 
     private void searchUserAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_searchUserAncestorAdded
-        String sql = "SELECT nome FROM users ORDER BY id";
+        String sql = "SELECT nome FROM users ORDER BY nome asc";
 
         try {
             stm = conn.prepareStatement(sql);
@@ -1928,7 +1930,7 @@ public final class home extends javax.swing.JFrame {
     }//GEN-LAST:event_searchUserAncestorAdded
 
     private void searchEquipAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_searchEquipAncestorAdded
-        String sql = "SELECT equipamento FROM equipamento ORDER BY idequipamento";
+        String sql = "SELECT equipamento FROM equipamento ORDER BY equipamento asc";
 
         try {
             stm = conn.prepareStatement(sql);
@@ -1944,7 +1946,7 @@ public final class home extends javax.swing.JFrame {
     }//GEN-LAST:event_searchEquipAncestorAdded
 
     private void searchMarcaAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_searchMarcaAncestorAdded
-        String sql = "SELECT marca FROM equipamento ORDER BY idequipamento";
+        String sql = "SELECT marca FROM equipamento ORDER BY marca asc";
 
         try {
             stm = conn.prepareStatement(sql);
@@ -1960,7 +1962,7 @@ public final class home extends javax.swing.JFrame {
     }//GEN-LAST:event_searchMarcaAncestorAdded
 
     private void searchModeloAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_searchModeloAncestorAdded
-        String sql = "SELECT modelo FROM equipamento ORDER BY idequipamento";
+        String sql = "SELECT modelo FROM equipamento ORDER BY modelo asc";
 
         try {
             stm = conn.prepareStatement(sql);
@@ -1976,7 +1978,7 @@ public final class home extends javax.swing.JFrame {
     }//GEN-LAST:event_searchModeloAncestorAdded
 
     private void searchNumSerieAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_searchNumSerieAncestorAdded
-        String sql = "SELECT numSerie FROM equipamento ORDER BY idequipamento";
+        String sql = "SELECT numSerie FROM equipamento ORDER BY numSerie asc";
 
         try {
             stm = conn.prepareStatement(sql);
@@ -2077,6 +2079,10 @@ public final class home extends javax.swing.JFrame {
         setVisible(true);
         
     }//GEN-LAST:event_docHISTActionPerformed
+
+    private void searchUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchUserActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchUserActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

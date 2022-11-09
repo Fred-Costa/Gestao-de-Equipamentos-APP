@@ -361,7 +361,7 @@ public class anxView extends javax.swing.JFrame {
 
     private void btnVERActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVERActionPerformed
 
-        String path = "C:\\Users\\Frederico\\Documents\\NetBeansProjects\\GestaoEquip\\uploads\\Documentos\\";
+        String path = "C:\\Users\\Frederico\\Documents\\NetBeansProjects\\GestaoEquip\\uploads\\Anexos\\";
 
         File file = new File(path);
 
